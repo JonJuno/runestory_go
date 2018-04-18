@@ -11,28 +11,22 @@ import UIKit
 class EquipViewController: UIViewController {
 
     @IBOutlet weak var headImageView: UIImageView!
-    
     @IBOutlet weak var chestImageView: UIImageView!
-    
     @IBOutlet weak var legsImageView: UIImageView!
-    
     @IBOutlet weak var leftImageView: UIImageView!
-    
     @IBOutlet weak var rightImageView: UIImageView!
-    
     @IBOutlet weak var accessoryImageView: UIImageView!
-    
+
     @IBOutlet weak var attackStatsLabel: UILabel!
-    
     @IBOutlet weak var defenseStatsLabel: UILabel!
-    
     @IBOutlet weak var magicStatsLabel: UILabel!
-    
     @IBOutlet weak var luckStatsLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        /* replace images with what user currently has equipped */
+        fillEquipment()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,8 +34,18 @@ class EquipViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func headPressed(_ sender: UILongPressGestureRecognizer) {
-        performSegue(withIdentifier: <#T##String#>, sender: self)
+    func fillEquipment() {
+        headImageView.image = UIImage(named: "head_slot")
+        chestImageView.image = UIImage(named: "chest_slot")
+        legsImageView.image = UIImage(named: "legs_slot")
+        leftImageView.image = UIImage(named: "weapon_slot")
+        rightImageView.image = UIImage(named: "shield_slot")
+        accessoryImageView.image = UIImage(named: "accessory_slot")
     }
+    
+    @IBAction func headSlotPressed(_ sender: UILongPressGestureRecognizer) {
+        performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
+    }
+    
 }
 

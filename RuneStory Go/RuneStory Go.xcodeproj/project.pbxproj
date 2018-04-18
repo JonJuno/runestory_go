@@ -8,13 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		A04F7422208689680020AEE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7421208689680020AEE8 /* AppDelegate.swift */; };
-		A04F7424208689680020AEE8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7423208689680020AEE8 /* FirstViewController.swift */; };
-		A04F7426208689680020AEE8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7425208689680020AEE8 /* SecondViewController.swift */; };
+		A04F7424208689680020AEE8 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7423208689680020AEE8 /* ActionViewController.swift */; };
+		A04F7426208689680020AEE8 /* EquipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7425208689680020AEE8 /* EquipViewController.swift */; };
 		A04F7429208689680020AEE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A04F7427208689680020AEE8 /* Main.storyboard */; };
 		A04F742B208689680020AEE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A04F742A208689680020AEE8 /* Assets.xcassets */; };
 		A04F742E208689680020AEE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A04F742C208689680020AEE8 /* LaunchScreen.storyboard */; };
 		A04F7439208689680020AEE8 /* RuneStory_GoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7438208689680020AEE8 /* RuneStory_GoTests.swift */; };
 		A04F7444208689680020AEE8 /* RuneStory_GoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7443208689680020AEE8 /* RuneStory_GoUITests.swift */; };
+		A04F745220868A670020AEE8 /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F745120868A670020AEE8 /* SkillsViewController.swift */; };
+		A04F74572086979E0020AEE8 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F74562086979E0020AEE8 /* InventoryViewController.swift */; };
+		A04F745A20869A670020AEE8 /* InventoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F745920869A670020AEE8 /* InventoryCollectionViewCell.swift */; };
+		A04F745C20869DCA0020AEE8 /* CheatingConstantsforLazyPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F745B20869DCA0020AEE8 /* CheatingConstantsforLazyPeople.swift */; };
+		A04F745E2086E0FE0020AEE8 /* EquipSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F745D2086E0FE0020AEE8 /* EquipSelectViewController.swift */; };
+		A04F74602086E2120020AEE8 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F745F2086E2120020AEE8 /* SkillsTableViewCell.swift */; };
+		A04F74622086E83F0020AEE8 /* EquipSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F74612086E83F0020AEE8 /* EquipSelectTableViewCell.swift */; };
+		A04F7464208711C20020AEE8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7463208711C20020AEE8 /* Player.swift */; };
+		A04F74662087125E0020AEE8 /* EquippedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F74652087125E0020AEE8 /* EquippedItems.swift */; };
+		A04F74682087128A0020AEE8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F74672087128A0020AEE8 /* Item.swift */; };
+		A04F746A208715590020AEE8 /* SkillStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7469208715590020AEE8 /* SkillStats.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +48,8 @@
 /* Begin PBXFileReference section */
 		A04F741E208689680020AEE8 /* RuneStory Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RuneStory Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A04F7421208689680020AEE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A04F7423208689680020AEE8 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		A04F7425208689680020AEE8 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		A04F7423208689680020AEE8 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		A04F7425208689680020AEE8 /* EquipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipViewController.swift; sourceTree = "<group>"; };
 		A04F7428208689680020AEE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A04F742A208689680020AEE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A04F742D208689680020AEE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +60,17 @@
 		A04F743F208689680020AEE8 /* RuneStory GoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RuneStory GoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A04F7443208689680020AEE8 /* RuneStory_GoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneStory_GoUITests.swift; sourceTree = "<group>"; };
 		A04F7445208689680020AEE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A04F745120868A670020AEE8 /* SkillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsViewController.swift; sourceTree = "<group>"; };
+		A04F74562086979E0020AEE8 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		A04F745920869A670020AEE8 /* InventoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		A04F745B20869DCA0020AEE8 /* CheatingConstantsforLazyPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheatingConstantsforLazyPeople.swift; sourceTree = "<group>"; };
+		A04F745D2086E0FE0020AEE8 /* EquipSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipSelectViewController.swift; sourceTree = "<group>"; };
+		A04F745F2086E2120020AEE8 /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
+		A04F74612086E83F0020AEE8 /* EquipSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipSelectTableViewCell.swift; sourceTree = "<group>"; };
+		A04F7463208711C20020AEE8 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		A04F74652087125E0020AEE8 /* EquippedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquippedItems.swift; sourceTree = "<group>"; };
+		A04F74672087128A0020AEE8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		A04F7469208715590020AEE8 /* SkillStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillStats.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +121,13 @@
 		A04F7420208689680020AEE8 /* RuneStory Go */ = {
 			isa = PBXGroup;
 			children = (
-				A04F7421208689680020AEE8 /* AppDelegate.swift */,
-				A04F7423208689680020AEE8 /* FirstViewController.swift */,
-				A04F7425208689680020AEE8 /* SecondViewController.swift */,
+				A04F745520868CA40020AEE8 /* Models */,
+				A04F74582086997A0020AEE8 /* Cells */,
+				A04F745320868C770020AEE8 /* View Controllers */,
 				A04F7427208689680020AEE8 /* Main.storyboard */,
-				A04F742A208689680020AEE8 /* Assets.xcassets */,
 				A04F742C208689680020AEE8 /* LaunchScreen.storyboard */,
+				A04F7421208689680020AEE8 /* AppDelegate.swift */,
+				A04F742A208689680020AEE8 /* Assets.xcassets */,
 				A04F742F208689680020AEE8 /* Info.plist */,
 			);
 			path = "RuneStory Go";
@@ -126,6 +149,40 @@
 				A04F7445208689680020AEE8 /* Info.plist */,
 			);
 			path = "RuneStory GoUITests";
+			sourceTree = "<group>";
+		};
+		A04F745320868C770020AEE8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A04F7425208689680020AEE8 /* EquipViewController.swift */,
+				A04F745D2086E0FE0020AEE8 /* EquipSelectViewController.swift */,
+				A04F7423208689680020AEE8 /* ActionViewController.swift */,
+				A04F74562086979E0020AEE8 /* InventoryViewController.swift */,
+				A04F745120868A670020AEE8 /* SkillsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		A04F745520868CA40020AEE8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A04F745B20869DCA0020AEE8 /* CheatingConstantsforLazyPeople.swift */,
+				A04F7463208711C20020AEE8 /* Player.swift */,
+				A04F74672087128A0020AEE8 /* Item.swift */,
+				A04F74652087125E0020AEE8 /* EquippedItems.swift */,
+				A04F7469208715590020AEE8 /* SkillStats.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A04F74582086997A0020AEE8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A04F745920869A670020AEE8 /* InventoryCollectionViewCell.swift */,
+				A04F745F2086E2120020AEE8 /* SkillsTableViewCell.swift */,
+				A04F74612086E83F0020AEE8 /* EquipSelectTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +319,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A04F7426208689680020AEE8 /* SecondViewController.swift in Sources */,
+				A04F7464208711C20020AEE8 /* Player.swift in Sources */,
+				A04F74662087125E0020AEE8 /* EquippedItems.swift in Sources */,
+				A04F7426208689680020AEE8 /* EquipViewController.swift in Sources */,
 				A04F7422208689680020AEE8 /* AppDelegate.swift in Sources */,
-				A04F7424208689680020AEE8 /* FirstViewController.swift in Sources */,
+				A04F74572086979E0020AEE8 /* InventoryViewController.swift in Sources */,
+				A04F745C20869DCA0020AEE8 /* CheatingConstantsforLazyPeople.swift in Sources */,
+				A04F745A20869A670020AEE8 /* InventoryCollectionViewCell.swift in Sources */,
+				A04F74682087128A0020AEE8 /* Item.swift in Sources */,
+				A04F745E2086E0FE0020AEE8 /* EquipSelectViewController.swift in Sources */,
+				A04F746A208715590020AEE8 /* SkillStats.swift in Sources */,
+				A04F7424208689680020AEE8 /* ActionViewController.swift in Sources */,
+				A04F745220868A670020AEE8 /* SkillsViewController.swift in Sources */,
+				A04F74622086E83F0020AEE8 /* EquipSelectTableViewCell.swift in Sources */,
+				A04F74602086E2120020AEE8 /* SkillsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5Q67JFPGS;
 				INFOPLIST_FILE = "RuneStory Go/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "johnnyleiosdecal.RuneStory-Go";
@@ -445,6 +514,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A5Q67JFPGS;
 				INFOPLIST_FILE = "RuneStory Go/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "johnnyleiosdecal.RuneStory-Go";

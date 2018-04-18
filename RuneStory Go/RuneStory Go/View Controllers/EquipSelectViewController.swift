@@ -1,5 +1,5 @@
 //
-//  EquipSelectViewController.swift
+//  EquipSelectTableViewController.swift
 //  RuneStory Go
 //
 //  Created by Johnny Le on 4/17/18.
@@ -10,12 +10,16 @@ import Foundation
 import UIKit
 
 class EquipSelectViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
+    
     @IBOutlet var equipSelectTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        equipSelectTableView.delegate = self
+        equipSelectTableView.dataSource = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,7 +33,16 @@ class EquipSelectViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        return equipSelectTableView!.dequeueReusableCell(withIdentifier: "equipSelectTableViewCell") as! EquipSelectTableViewCell
+        let newCell = equipSelectTableView!.dequeueReusableCell(withIdentifier: "equipSelectTableViewCell") as! EquipSelectTableViewCell
+        
+        newCell.equipSelectImageView?.image = UIImage(named: "rune_full")
+        newCell.equipSelectNameLabel?.text = "Rune Full Helm"
+        
+        return newCell
     }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        dismiss(animated: true, completion: nil)
+//    }
     
 }

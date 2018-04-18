@@ -23,6 +23,8 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view, typically from a nib.
         skillsTableView.delegate = self
         skillsTableView.dataSource = self
+        
+        setupCharData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,16 +34,24 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5 // TODO: incorporate model
+        return skillNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let newCell = skillsTableView.dequeueReusableCell(withIdentifier: "skillsTableViewCell") as! SkillsTableViewCell
         
-        // TODO: modify the cell here and stuff
+        newCell.skillImageView.image = skillImages[indexPath.item]
+        newCell.skillNameLabel.text = skillNames[indexPath.item]
+        newCell.skillLevelLabel.text = "1/1"
         
         return newCell
     }
     
+    func setupCharData() {
+        userAvatarImageView.image = UIImage(named: "bob")
+        userNameLabel.text = "Bob"
+        userLevelLabel.text = "Level 3"
+        userNextXPLabel.text = "266 XP until Next Level"
+    }
 }
