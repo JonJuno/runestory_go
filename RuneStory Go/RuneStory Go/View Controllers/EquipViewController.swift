@@ -40,5 +40,8 @@ class EquipViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func headPressed(_ sender: UILongPressGestureRecognizer) {
+        performSegue(withIdentifier: <#T##String#>, sender: self)
+    }
 }
 

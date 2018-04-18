@@ -33,8 +33,7 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
         
         let newCell = collectionView.dequeueReusableCell(withReuseIdentifier: "InventoryCollectionCell", for: indexPath) as! InventoryCollectionViewCell
         
-        // Include some images here
-        // newCell.ItemImageView.image = UIImage()
+        newCell.ItemImageView.image = UIImage(named: "dagger_dragon")
     
         return newCell
     }
