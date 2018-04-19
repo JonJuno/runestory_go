@@ -13,17 +13,31 @@ class InventoryViewController: RuneStoryGoUIViewController, UICollectionViewDele
 
     @IBOutlet weak var InventoryCollectionView: UICollectionView!
     @IBOutlet weak var itemNameLabel: UILabel!
+    @IBOutlet weak var useItemButton: UIButton!
+    
+    var blueButtonColor: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         InventoryCollectionView.delegate = self
         InventoryCollectionView.dataSource = self
+        blueButtonColor = self.view.tintColor
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        InventoryCollectionView.reloadData()
+        itemNameLabel.text = "No Item Selected"
+        useItemButton.isEnabled = false
+        useItemButton.tintColor = UIColor.lightGray
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func useItemButtonPressed(_ sender: Any) {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -40,7 +54,16 @@ class InventoryViewController: RuneStoryGoUIViewController, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        itemNameLabel.text = currPlayer.inventoryItem(index: indexPath.item).name + ": " + currPlayer.inventoryItem(index: indexPath.item).type
+        let chosenItem = currPlayer.inventoryItem(index: indexPath.item)
+        
+        itemNameLabel.text = chosenItem.name
+        if (chosenItem.consumable) {
+            useItemButton.isEnabled = true
+            useItemButton.tintColor = blueButtonColor
+        } else {
+            useItemButton.isEnabled = false
+            useItemButton.tintColor = UIColor.lightGray
+        }
     }
     
 }

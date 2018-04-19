@@ -31,6 +31,12 @@ class Player {
     }
     
     func removeFromInventory(item: Item) {
+        for i in 0..<inventory.count {
+            if (inventory[i].itemId == item.itemId) {
+                inventory.remove(at: i)
+                return
+            }
+        }
     }
     
     func inventorySize() -> Int {

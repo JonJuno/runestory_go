@@ -49,6 +49,7 @@ class EquipSelectViewController: RuneStoryGoUIViewController, UITableViewDataSou
         if let removedItem = currPlayer.unequipItem(slotToUnequip: selectedSlot!) {
             currPlayer.addToInventory(item: removedItem)
         }
+        currPlayer.removeFromInventory(item: item) // This is buggy and doesn't remove properly
         currPlayer.equipItem(itemToEquip: item)
         dismiss(animated: true, completion: nil)
     }

@@ -16,6 +16,14 @@ class EquipViewController: RuneStoryGoUIViewController {
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var rightImageView: UIImageView!
     @IBOutlet weak var accessoryImageView: UIImageView!
+    
+    @IBOutlet weak var headOverlayImageView: UIImageView!
+    @IBOutlet weak var chestOverlayImageView: UIImageView!
+    @IBOutlet weak var rightOverlayImageView: UIImageView!
+    @IBOutlet weak var leftOverlayImageView: UIImageView!
+    @IBOutlet weak var accessoryOverlayImageView: UIImageView!
+    @IBOutlet weak var legsOverlayImageView: UIImageView!
+    
 
     @IBOutlet weak var attackStatsLabel: UILabel!
     @IBOutlet weak var defenseStatsLabel: UILabel!
@@ -46,6 +54,14 @@ class EquipViewController: RuneStoryGoUIViewController {
         leftImageView.image = UIImage(named: "weapon_slot")
         rightImageView.image = UIImage(named: "shield_slot")
         accessoryImageView.image = UIImage(named: "accessory_slot")
+        
+        let equipped = currPlayer.equipped
+        headOverlayImageView.image = equipped.head_item?.image
+        chestOverlayImageView.image = equipped.chest_item?.image
+        rightOverlayImageView.image = equipped.right_item?.image
+        leftOverlayImageView.image = equipped.left_item?.image
+        accessoryOverlayImageView.image = equipped.accessory_item?.image
+        legsOverlayImageView.image = equipped.legs_item?.image
     }
     
     func calcEquipmentStats() {

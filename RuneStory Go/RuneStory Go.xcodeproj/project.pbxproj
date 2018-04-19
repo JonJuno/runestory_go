@@ -162,14 +162,14 @@
 		A04F745320868C770020AEE8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A04F7425208689680020AEE8 /* EquipViewController.swift */,
 				A04F746F20882D380020AEE8 /* QuestsViewController.swift */,
 				A0BB74872088344C000BDBC5 /* QuestInfoViewController.swift */,
-				A04F746B2087ED870020AEE8 /* RuneStoryGoUIViewController.swift */,
+				A04F7425208689680020AEE8 /* EquipViewController.swift */,
 				A04F745D2086E0FE0020AEE8 /* EquipSelectViewController.swift */,
 				A04F7423208689680020AEE8 /* ActionViewController.swift */,
 				A04F74562086979E0020AEE8 /* InventoryViewController.swift */,
 				A04F745120868A670020AEE8 /* SkillsViewController.swift */,
+				A04F746B2087ED870020AEE8 /* RuneStoryGoUIViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
