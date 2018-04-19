@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActionViewController: UIViewController {
+class ActionViewController: RuneStoryGoUIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

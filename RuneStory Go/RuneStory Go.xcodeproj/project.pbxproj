@@ -26,6 +26,10 @@
 		A04F74662087125E0020AEE8 /* EquippedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F74652087125E0020AEE8 /* EquippedItems.swift */; };
 		A04F74682087128A0020AEE8 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F74672087128A0020AEE8 /* Item.swift */; };
 		A04F746A208715590020AEE8 /* SkillStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7469208715590020AEE8 /* SkillStats.swift */; };
+		A04F746C2087ED870020AEE8 /* RuneStoryGoUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F746B2087ED870020AEE8 /* RuneStoryGoUIViewController.swift */; };
+		A04F746E20882CFE0020AEE8 /* QuestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F746D20882CFE0020AEE8 /* QuestsTableViewCell.swift */; };
+		A04F747020882D380020AEE8 /* QuestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F746F20882D380020AEE8 /* QuestsViewController.swift */; };
+		A0BB74882088344C000BDBC5 /* QuestInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB74872088344C000BDBC5 /* QuestInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,10 @@
 		A04F74652087125E0020AEE8 /* EquippedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquippedItems.swift; sourceTree = "<group>"; };
 		A04F74672087128A0020AEE8 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		A04F7469208715590020AEE8 /* SkillStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillStats.swift; sourceTree = "<group>"; };
+		A04F746B2087ED870020AEE8 /* RuneStoryGoUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuneStoryGoUIViewController.swift; sourceTree = "<group>"; };
+		A04F746D20882CFE0020AEE8 /* QuestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestsTableViewCell.swift; sourceTree = "<group>"; };
+		A04F746F20882D380020AEE8 /* QuestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestsViewController.swift; sourceTree = "<group>"; };
+		A0BB74872088344C000BDBC5 /* QuestInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,9 @@
 			isa = PBXGroup;
 			children = (
 				A04F7425208689680020AEE8 /* EquipViewController.swift */,
+				A04F746F20882D380020AEE8 /* QuestsViewController.swift */,
+				A0BB74872088344C000BDBC5 /* QuestInfoViewController.swift */,
+				A04F746B2087ED870020AEE8 /* RuneStoryGoUIViewController.swift */,
 				A04F745D2086E0FE0020AEE8 /* EquipSelectViewController.swift */,
 				A04F7423208689680020AEE8 /* ActionViewController.swift */,
 				A04F74562086979E0020AEE8 /* InventoryViewController.swift */,
@@ -179,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				A04F745920869A670020AEE8 /* InventoryCollectionViewCell.swift */,
+				A04F746D20882CFE0020AEE8 /* QuestsTableViewCell.swift */,
 				A04F745F2086E2120020AEE8 /* SkillsTableViewCell.swift */,
 				A04F74612086E83F0020AEE8 /* EquipSelectTableViewCell.swift */,
 			);
@@ -327,10 +339,14 @@
 				A04F745C20869DCA0020AEE8 /* CheatingConstantsforLazyPeople.swift in Sources */,
 				A04F745A20869A670020AEE8 /* InventoryCollectionViewCell.swift in Sources */,
 				A04F74682087128A0020AEE8 /* Item.swift in Sources */,
+				A04F746E20882CFE0020AEE8 /* QuestsTableViewCell.swift in Sources */,
+				A0BB74882088344C000BDBC5 /* QuestInfoViewController.swift in Sources */,
 				A04F745E2086E0FE0020AEE8 /* EquipSelectViewController.swift in Sources */,
 				A04F746A208715590020AEE8 /* SkillStats.swift in Sources */,
+				A04F746C2087ED870020AEE8 /* RuneStoryGoUIViewController.swift in Sources */,
 				A04F7424208689680020AEE8 /* ActionViewController.swift in Sources */,
 				A04F745220868A670020AEE8 /* SkillsViewController.swift in Sources */,
+				A04F747020882D380020AEE8 /* QuestsViewController.swift in Sources */,
 				A04F74622086E83F0020AEE8 /* EquipSelectTableViewCell.swift in Sources */,
 				A04F74602086E2120020AEE8 /* SkillsTableViewCell.swift in Sources */,
 			);

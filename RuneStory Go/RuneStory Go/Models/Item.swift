@@ -15,9 +15,22 @@ class Item {
     var name: String
     var type: String
     
-    init(named itemName: String, type itemType: String, image itemImage: UIImage) {
+    var attackBuff: Int
+    var defenseBuff: Int
+    var magicBuff: Int
+    var luckBuff: Int
+    var healthRestore: Int
+    
+    init(named itemName: String, type itemType: String, image itemImage: UIImage, attackVal: Int, defenseVal: Int, magicVal: Int, luckVal: Int, healthVal: Int) {
+        
         name = itemName
         type = itemType
         image = itemImage
+        
+        attackBuff = attackVal
+        defenseBuff = defenseVal
+        magicBuff = magicVal
+        luckBuff = luckVal
+        healthRestore = healthVal
     }
 }

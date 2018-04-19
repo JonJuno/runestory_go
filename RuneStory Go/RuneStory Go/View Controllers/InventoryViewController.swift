@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-class InventoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class InventoryViewController: RuneStoryGoUIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var InventoryCollectionView: UICollectionView!
+    @IBOutlet weak var itemNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +27,20 @@ class InventoryViewController: UIViewController, UICollectionViewDelegate, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5 // TODO: Implement Model for Inventory
+        return currPlayer.inventorySize()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let newCell = collectionView.dequeueReusableCell(withReuseIdentifier: "InventoryCollectionCell", for: indexPath) as! InventoryCollectionViewCell
         
-        newCell.ItemImageView.image = UIImage(named: "dagger_dragon")
+        newCell.ItemImageView.image = currPlayer.inventoryItem(index: indexPath.item).image
     
         return newCell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        itemNameLabel.text = currPlayer.inventoryItem(index: indexPath.item).name + ": " + currPlayer.inventoryItem(index: indexPath.item).type
     }
     
 }

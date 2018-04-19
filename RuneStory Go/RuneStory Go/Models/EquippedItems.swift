@@ -17,4 +17,51 @@ class EquippedItems {
     var right_item: Item?
     var accessory_item: Item?
     
+    func items() -> [Item?] {
+        return [head_item, chest_item, legs_item, left_item, right_item, accessory_item]
+    }
+    
+    /* Equips given item to appropriate slot. Error if item is not equippable */
+    func equip(item: Item) {
+        switch item.type {
+            case "Weapon": left_item = item
+            case "Shield": right_item = item
+            case "Head": head_item = item
+            case "Chest": chest_item = item
+            case "Legs": legs_item = item
+            case "Accessory": accessory_item = item
+            default: print("Can't Equip That!")
+        }
+    }
+    
+    func unequip(slotToUnequip: String) -> Item? {
+        
+        var itemToReturn: Item?
+        
+        switch slotToUnequip {
+            case "Weapon":
+                itemToReturn = left_item
+                left_item = nil
+            case "Shield":
+                itemToReturn = right_item
+                right_item = nil
+            case "Head":
+                itemToReturn = head_item
+                head_item = nil
+            case "Chest":
+                itemToReturn = chest_item
+                chest_item = nil
+            case "Legs":
+                itemToReturn = legs_item
+                legs_item = nil
+            case "Accessory":
+                itemToReturn = accessory_item
+                accessory_item = nil
+            default:
+                itemToReturn = nil
+        }
+        
+        return itemToReturn
+    }
+    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EquipViewController: UIViewController {
+class EquipViewController: RuneStoryGoUIViewController {
 
     @IBOutlet weak var headImageView: UIImageView!
     @IBOutlet weak var chestImageView: UIImageView!
@@ -22,11 +22,16 @@ class EquipViewController: UIViewController {
     @IBOutlet weak var magicStatsLabel: UILabel!
     @IBOutlet weak var luckStatsLabel: UILabel!
     
+    var selectedSlot: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         /* replace images with what user currently has equipped */
         fillEquipment()
+        calcEquipmentStats()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,9 +48,72 @@ class EquipViewController: UIViewController {
         accessoryImageView.image = UIImage(named: "accessory_slot")
     }
     
-    @IBAction func headSlotPressed(_ sender: UILongPressGestureRecognizer) {
-        performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
+    func calcEquipmentStats() {
+        var attackVal = 0
+        var defenseVal = 0
+        var magicVal = 0
+        var luckVal = 0
+        
+        for item in currPlayer.equippedItemsList() {
+            if let safeItem = item {
+                attackVal += safeItem.attackBuff
+                defenseVal += safeItem.defenseBuff
+                magicVal += safeItem.magicBuff
+                luckVal += safeItem.luckBuff
+            }
+        }
+        
+        attackStatsLabel.text = "Attack: " + String(describing: attackVal)
+        defenseStatsLabel.text = "Defence: " + String(describing: defenseVal)
+        magicStatsLabel.text = "Magic: " + String(describing: magicVal)
+        luckStatsLabel.text = "Luck: " + String(describing: luckVal)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let id = segue.identifier {
+            if id == "equipTableSelectSegue" {
+                let dest = segue.destination as! EquipSelectViewController
+                dest.selectedSlot = selectedSlot
+            }
+        }
+    }
+    
+    @IBAction func headSlotPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != UIGestureRecognizerState.began {
+            selectedSlot = "Head"
+            performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
+        }
+    }
+    
+    @IBAction func chestSlotPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != UIGestureRecognizerState.began {
+            selectedSlot = "Chest"
+            performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
+        }
+    }
+    @IBAction func rightSlotPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != UIGestureRecognizerState.began {
+            selectedSlot = "Shield"
+            performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
+        }
+    }
+    @IBAction func legsSlotPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != UIGestureRecognizerState.began {
+            selectedSlot = "Legs"
+            performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
+        }
+    }
+    @IBAction func accessorySlotPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != UIGestureRecognizerState.began {
+            selectedSlot = "Accessory"
+            performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
+        }
+    }
+    @IBAction func leftSlotPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state != UIGestureRecognizerState.began {
+            selectedSlot = "Weapon"
+            performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
+        }
+    }
 }
 

@@ -9,12 +9,11 @@
 import Foundation
 import UIKit
 
-class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SkillsViewController: RuneStoryGoUIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var userAvatarImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userLevelLabel: UILabel!
-    @IBOutlet weak var userNextXPLabel: UILabel!
     
     @IBOutlet weak var skillsTableView: UITableView!
     
@@ -43,15 +42,17 @@ class SkillsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         newCell.skillImageView.image = skillImages[indexPath.item]
         newCell.skillNameLabel.text = skillNames[indexPath.item]
-        newCell.skillLevelLabel.text = "1/1"
+        
+        if let skillLevel = currPlayer.getSkillLevel(skillName: skillNames[indexPath.item]) {
+            newCell.skillLevelLabel.text = String(describing: skillLevel) + "/" + String(describing: skillLevel)
+        }
         
         return newCell
     }
     
     func setupCharData() {
         userAvatarImageView.image = UIImage(named: "bob")
-        userNameLabel.text = "Bob"
-        userLevelLabel.text = "Level 3"
-        userNextXPLabel.text = "266 XP until Next Level"
+        userNameLabel.text = currPlayer.name
+        userLevelLabel.text = "Level " + String(currPlayer.level)
     }
 }
