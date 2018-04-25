@@ -33,6 +33,10 @@ class SkillStats {
         }
     }
     
+    func setSkillLevel(skillName: String, value: Int) {
+        statLevels[skillName] = value
+    }
+    
     func getSkillLevel(skillName: String) -> Int? {
         if let skillLevel = statLevels[skillName] {
             return skillLevel

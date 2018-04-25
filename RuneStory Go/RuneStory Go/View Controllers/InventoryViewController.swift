@@ -16,6 +16,7 @@ class InventoryViewController: RuneStoryGoUIViewController, UICollectionViewDele
     @IBOutlet weak var useItemButton: UIButton!
     
     var blueButtonColor: UIColor!
+    var selectedItem: Item!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,9 @@ class InventoryViewController: RuneStoryGoUIViewController, UICollectionViewDele
     }
     
     @IBAction func useItemButtonPressed(_ sender: Any) {
+        currPlayer.increaseHealth(hitpoints: selectedItem.healthRestore)
+        currPlayer.removeFromInventory(item: selectedItem)
+        InventoryCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -54,10 +58,10 @@ class InventoryViewController: RuneStoryGoUIViewController, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let chosenItem = currPlayer.inventoryItem(index: indexPath.item)
+        selectedItem = currPlayer.inventoryItem(index: indexPath.item)
         
-        itemNameLabel.text = chosenItem.name
-        if (chosenItem.consumable) {
+        itemNameLabel.text = selectedItem.name
+        if (selectedItem.consumable) {
             useItemButton.isEnabled = true
             useItemButton.tintColor = blueButtonColor
         } else {

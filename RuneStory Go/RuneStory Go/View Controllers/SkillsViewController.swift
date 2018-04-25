@@ -26,6 +26,10 @@ class SkillsViewController: RuneStoryGoUIViewController, UITableViewDelegate, UI
         setupCharData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        skillsTableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,7 +48,11 @@ class SkillsViewController: RuneStoryGoUIViewController, UITableViewDelegate, UI
         newCell.skillNameLabel.text = skillNames[indexPath.item]
         
         if let skillLevel = currPlayer.getSkillLevel(skillName: skillNames[indexPath.item]) {
-            newCell.skillLevelLabel.text = String(describing: skillLevel) + "/" + String(describing: skillLevel)
+            if (skillNames[indexPath.item] == "Health") {
+                newCell.skillLevelLabel.text = String(describing: currPlayer.getHealth()) + "/" + String(describing: skillLevel)
+            } else {
+                newCell.skillLevelLabel.text = String(describing: skillLevel) + "/" + String(describing: skillLevel)
+            }
         }
         
         return newCell

@@ -21,6 +21,23 @@ class EquippedItems {
         return [head_item, chest_item, legs_item, left_item, right_item, accessory_item]
     }
     
+    func equippedStats(stat: String) -> Int {
+        var valToReturn = 0
+        for item in items() {
+            if let safeItem = item {
+                switch stat {
+                    case "Attack": valToReturn += safeItem.attackBuff
+                    case "Defense": valToReturn += safeItem.defenseBuff
+                    case "Magic": valToReturn += safeItem.magicBuff
+                    case "Luck": valToReturn += safeItem.luckBuff
+                    default: valToReturn += 0
+                }
+            }
+        }
+        
+        return valToReturn
+    }
+    
     /* Equips given item to appropriate slot. Error if item is not equippable */
     func equip(item: Item) {
         switch item.type {

@@ -65,19 +65,10 @@ class EquipViewController: RuneStoryGoUIViewController {
     }
     
     func calcEquipmentStats() {
-        var attackVal = 0
-        var defenseVal = 0
-        var magicVal = 0
-        var luckVal = 0
-        
-        for item in currPlayer.equippedItemsList() {
-            if let safeItem = item {
-                attackVal += safeItem.attackBuff
-                defenseVal += safeItem.defenseBuff
-                magicVal += safeItem.magicBuff
-                luckVal += safeItem.luckBuff
-            }
-        }
+        let attackVal = currPlayer.equippedStats(statName: "Attack")
+        let defenseVal = currPlayer.equippedStats(statName: "Defense")
+        let magicVal = currPlayer.equippedStats(statName: "Magic")
+        let luckVal = currPlayer.equippedStats(statName: "Luck")
         
         attackStatsLabel.text = "Attack: " + String(describing: attackVal)
         defenseStatsLabel.text = "Defence: " + String(describing: defenseVal)

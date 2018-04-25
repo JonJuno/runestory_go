@@ -12,6 +12,7 @@ class Player {
 
     var name: String
     var level: Int
+    var health: Int
     var equipped: EquippedItems
     var inventory: [Item]
     var stats: SkillStats
@@ -22,9 +23,15 @@ class Player {
         equipped = EquippedItems()
         inventory = items
         stats = SkillStats()
+        stats.setSkillLevel(skillName: "Health", value: 10)
+        health = stats.getSkillLevel(skillName: "Health")!
     }
     
     /* Inventory Methods */
+    
+    func getInventory() -> [Item] {
+        return inventory
+    }
     
     func addToInventory(item: Item) {
         inventory.append(item)
@@ -80,12 +87,36 @@ class Player {
         return equipped.items()
     }
     
+    func equippedStats(statName: String) -> Int {
+        return equipped.equippedStats(stat: statName)
+    }
+    
     /* Skills Methods */
     func getSkillLevel(skillName: String) -> Int? {
         if let skill = stats.getSkillLevel(skillName: skillName) {
             return skill
         } else {
             return nil
+        }
+    }
+    
+    /* Health Methods */
+    
+    func getHealth() -> Int {
+        return health
+    }
+    
+    func increaseHealth(hitpoints: Int) {
+        health += hitpoints
+        if health > currPlayer.getSkillLevel(skillName: "Health")! {
+            health = currPlayer.getSkillLevel(skillName: "Health")!
+        }
+    }
+    
+    func decreaseHealth(hitpoints: Int) {
+        health -= hitpoints
+        if health < 0 {
+            health = 0
         }
     }
 }
