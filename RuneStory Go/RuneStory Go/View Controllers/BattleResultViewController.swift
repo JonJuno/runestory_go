@@ -1,23 +1,22 @@
 //
-//  ResultViewController.swift
+//  BattleResultViewController.swift
 //  RuneStory Go
 //
-//  Created by Johnny Le on 4/19/18.
+//  Created by Johnny Le on 4/25/18.
 //  Copyright © 2018 Johnny Le. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class BattleResultViewController: RuneStoryGoUIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var battleResultLabel: UILabel!
-    @IBOutlet weak var inventoryChangesLabel: UILabel!
-    @IBOutlet weak var itemsTableView: UITableView!
+    @IBOutlet weak var winLossLabel: UILabel!
+    @IBOutlet weak var resultTableView: UITableView!
     
     var enemyMob: Mob!
     var won: Bool!
-    
     var items: [Item]!
     var skill: Int!
     
@@ -25,28 +24,32 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        itemsTableView.dataSource = self
-        itemsTableView.delegate = self
+        resultTableView.delegate = self
+        resultTableView.dataSource = self
         
         if won {
             items = calcItemsGained()
             skill = calcSkillGained()
             battleResultLabel.text = "Victory!"
-            inventoryChangesLabel.text = "You received " + String(describing: skill!) + " experience and:"
+            winLossLabel.text = "You received " + String(describing: skill!) + " experience and:"
         } else {
             items = calcItemsLost()
             battleResultLabel.text = "Defeat!"
-            inventoryChangesLabel.text = "You lost:"
+            winLossLabel.text = "You lost:"
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let count = items.count
-        return 5
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let newCell = resultTableView.dequeueReusableCell(withIdentifier: "changedItemCell") as! ChangedItemsTableViewCell
+        newCell.backgroundColor = UIColor.black
+        let item = items[indexPath.item]
+        newCell.itemImageView.image = item.image
+        newCell.itemNameLabel.text = item.name
+        return newCell
     }
     
     @IBAction func okayButtonPressed(_ sender: Any) {
@@ -72,4 +75,5 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return lost
     }
+    
 }

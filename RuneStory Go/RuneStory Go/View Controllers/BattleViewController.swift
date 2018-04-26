@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BattleViewController: RuneStoryGoUIViewController {
+class BattleViewController: RuneStoryGoUIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var mobNameLabel: UILabel!
     @IBOutlet weak var mobHealthLabel: UILabel!
@@ -119,8 +119,16 @@ class BattleViewController: RuneStoryGoUIViewController {
         mobNameLabel.text = battleModel!.mob.name
     }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 1
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! ResultViewController
+        let dest = segue.destination as! BattleResultViewController
         dest.enemyMob = battleModel?.mob
         dest.won = battleModel?.mob.getHealth() == 0
     }
