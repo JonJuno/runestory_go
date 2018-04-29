@@ -13,6 +13,7 @@ class Item {
     
     var image: UIImage
     var name: String
+    var description: String
     var type: String
     
     var consumable: Bool
@@ -22,14 +23,16 @@ class Item {
     var magicBuff: Int
     var luckBuff: Int
     var healthRestore: Int
+    var cost: Int
     
     var itemId: String
     
-    init(named itemName: String, type itemType: String, image itemImage: UIImage, canConsume: Bool, attackVal: Int, defenseVal: Int, magicVal: Int, luckVal: Int, healthVal: Int) {
+    init(named itemName: String, type itemType: String, desc: String, image itemImage: UIImage, canConsume: Bool, attackVal: Int, defenseVal: Int, magicVal: Int, luckVal: Int, healthVal: Int, price: Int) {
         
         name = itemName
         type = itemType
         image = itemImage
+        description = desc
         
         consumable = canConsume
         
@@ -38,7 +41,12 @@ class Item {
         magicBuff = magicVal
         luckBuff = luckVal
         healthRestore = healthVal
+        cost = price
         
         itemId = UUID().uuidString
+    }
+    
+    func copy() -> Item {
+        return Item(named: name, type: type, desc: description, image: image, canConsume: consumable, attackVal: attackBuff, defenseVal: defenseBuff, magicVal: magicBuff, luckVal: luckBuff, healthVal: healthRestore, price: cost)
     }
 }

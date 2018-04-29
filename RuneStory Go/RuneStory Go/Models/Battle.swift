@@ -39,9 +39,11 @@ class Battle {
         if phase == BattlePhase.PlayerAttack {
             damage = calcDamage(attackVal: currPlayer.equippedStats(statName: "Attack"), attackSkill: currPlayer.getSkillLevel(skillName: "Attack")!, luckVal: currPlayer.equippedStats(statName: "Luck"), defenseVal: mob.equippedStats(statName: "Defense"), defenseSkill: mob.getSkillLevel(skillName: "Defense"))
             mob.decreaseHealth(hitpoints: damage)
+            currPlayer.increaseSkillXP(named: "Attack", amount: Int(Double(damage)/skillGrowthRate))
         } else if phase == BattlePhase.MobAttack {
             damage = calcDamage(attackVal: mob.equippedStats(statName: "Attack"), attackSkill: mob.getSkillLevel(skillName: "Attack"), luckVal: mob.equippedStats(statName: "Luck"), defenseVal: currPlayer.equippedStats(statName: "Defense"), defenseSkill: currPlayer.getSkillLevel(skillName: "Defense")!)
             currPlayer.decreaseHealth(hitpoints: damage)
+            currPlayer.increaseSkillXP(named: "Defense", amount: Int(Double(damage)/skillGrowthRate))
         }
         
         if (mob.getHealth() == 0 || currPlayer.getHealth() == 0) {

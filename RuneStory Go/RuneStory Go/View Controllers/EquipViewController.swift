@@ -31,15 +31,18 @@ class EquipViewController: RuneStoryGoUIViewController {
     @IBOutlet weak var luckStatsLabel: UILabel!
     
     var selectedSlot: String?
+    var opened: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        opened = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         /* replace images with what user currently has equipped */
         fillEquipment()
         calcEquipmentStats()
+        opened = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,38 +89,44 @@ class EquipViewController: RuneStoryGoUIViewController {
     }
     
     @IBAction func headSlotPressed(_ sender: UILongPressGestureRecognizer) {
-        if sender.state != UIGestureRecognizerState.began {
+        if !opened {
+            opened = true
             selectedSlot = "Head"
             performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
         }
     }
     
     @IBAction func chestSlotPressed(_ sender: UILongPressGestureRecognizer) {
-        if sender.state != UIGestureRecognizerState.began {
+        if !opened {
+            opened = true
             selectedSlot = "Chest"
             performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
         }
     }
     @IBAction func rightSlotPressed(_ sender: UILongPressGestureRecognizer) {
-        if sender.state != UIGestureRecognizerState.began {
+        if !opened {
+            opened = true
             selectedSlot = "Shield"
             performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
         }
     }
     @IBAction func legsSlotPressed(_ sender: UILongPressGestureRecognizer) {
-        if sender.state != UIGestureRecognizerState.began {
+        if !opened {
+            opened = true
             selectedSlot = "Legs"
             performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
         }
     }
     @IBAction func accessorySlotPressed(_ sender: UILongPressGestureRecognizer) {
-        if sender.state != UIGestureRecognizerState.began {
+        if !opened {
+            opened = true
             selectedSlot = "Accessory"
             performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
         }
     }
     @IBAction func leftSlotPressed(_ sender: UILongPressGestureRecognizer) {
-        if sender.state != UIGestureRecognizerState.began {
+        if !opened {
+            opened = true
             selectedSlot = "Weapon"
             performSegue(withIdentifier: "equipTableSelectSegue", sender: self)
         }

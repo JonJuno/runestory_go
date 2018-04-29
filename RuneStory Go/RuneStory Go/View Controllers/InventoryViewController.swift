@@ -13,9 +13,9 @@ class InventoryViewController: RuneStoryGoUIViewController, UICollectionViewDele
 
     @IBOutlet weak var InventoryCollectionView: UICollectionView!
     @IBOutlet weak var itemNameLabel: UILabel!
+    @IBOutlet weak var coinsLabel: UILabel!
     @IBOutlet weak var useItemButton: UIButton!
     
-    var blueButtonColor: UIColor!
     var selectedItem: Item!
     
     override func viewDidLoad() {
@@ -31,6 +31,7 @@ class InventoryViewController: RuneStoryGoUIViewController, UICollectionViewDele
         itemNameLabel.text = "No Item Selected"
         useItemButton.isEnabled = false
         useItemButton.tintColor = UIColor.lightGray
+        coinsLabel.text = String(describing: currPlayer.coins) + " gp"
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,7 +41,9 @@ class InventoryViewController: RuneStoryGoUIViewController, UICollectionViewDele
     
     @IBAction func useItemButtonPressed(_ sender: Any) {
         currPlayer.increaseHealth(hitpoints: selectedItem.healthRestore)
-        currPlayer.removeFromInventory(item: selectedItem)
+        if currPlayer.removeFromInventory(item: selectedItem) ==  false {
+            print("Uhhh, that wasn't supposed to happen...")
+        }
         InventoryCollectionView.reloadData()
     }
     

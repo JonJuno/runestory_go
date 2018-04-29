@@ -14,14 +14,22 @@ class InfoViewController: UIViewController {
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     
+    var selectedItem: Item!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        itemNameLabel.text = selectedItem.name
+        itemDescriptionLabel.text = selectedItem.description
     }
     
     @IBAction func cancelPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func buyPressed(_ sender: Any) {
+        currPlayer.addToInventory(item: selectedItem.copy())
         dismiss(animated: true, completion: nil)
     }
 }

@@ -45,7 +45,6 @@ class BattleResultViewController: RuneStoryGoUIViewController, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let newCell = resultTableView.dequeueReusableCell(withIdentifier: "changedItemCell") as! ChangedItemsTableViewCell
-        newCell.backgroundColor = UIColor.black
         let item = items[indexPath.item]
         newCell.itemImageView.image = item.image
         newCell.itemNameLabel.text = item.name
@@ -53,6 +52,18 @@ class BattleResultViewController: RuneStoryGoUIViewController, UITableViewDelega
     }
     
     @IBAction func okayButtonPressed(_ sender: Any) {
+        if won {
+            currPlayer.increaseXP(amount: skill)
+            for item in items {
+                currPlayer.addToInventory(item: item.copy())
+            }
+        } else {
+            for item in items {
+                if currPlayer.removeFromInventory(item: item) == false {
+                    print("Uhhh, that shouldn't have happened...")
+                }
+            }
+        }
         performSegue(withIdentifier: "unwindToActionViewController", sender: self)
     }
     
@@ -68,7 +79,7 @@ class BattleResultViewController: RuneStoryGoUIViewController, UITableViewDelega
         var lost:[Item] = []
         
         for item in currPlayer.getInventory() {
-            if (arc4random_uniform(UInt32(10 * currPlayer.equippedStats(statName: "Luck"))) == 0) {
+            if (arc4random_uniform(UInt32(10 * (currPlayer.equippedStats(statName: "Luck") + 1))) == 0) {
                 lost.append(item)
             }
         }

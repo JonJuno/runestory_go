@@ -23,13 +23,15 @@ class BattleViewController: RuneStoryGoUIViewController, UIPickerViewDelegate, U
     
     @IBOutlet weak var actionButton: UIButton!
     
-    var battleModel: Battle?
-    var blueButtonColor: UIColor!
+    var battleModel: Battle!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         blueButtonColor = self.view.tintColor
+        
+        attackPicker.dataSource = self
+        attackPicker.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +65,7 @@ class BattleViewController: RuneStoryGoUIViewController, UIPickerViewDelegate, U
     
     func displayTextTimed(finished: @escaping () -> Void) {
         displayText()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
             self.hideText()
             finished()
         }
@@ -119,17 +121,35 @@ class BattleViewController: RuneStoryGoUIViewController, UIPickerViewDelegate, U
         mobNameLabel.text = battleModel!.mob.name
     }
     
+    @IBAction func retreatButtonPressed(_ sender: Any) {
+        if (arc4random_uniform(UInt32((currPlayer.equippedStats(statName: "Luck") + currPlayer.getSkillLevel(skillName: "Agility")!))) <= 1) {
+            let alert = UIAlertController(title: "Failed to Escape!", message: "The " + (battleModel?.mob.name)! + " prevents you from escaping!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            self.performSegue(withIdentifier: "retreatFromBattle", sender: self)
+        }
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
+        return currPlayer.attacks.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return currPlayer.attacks[row].name
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! BattleResultViewController
-        dest.enemyMob = battleModel?.mob
-        dest.won = battleModel?.mob.getHealth() == 0
+        if let id = segue.identifier {
+            if id == "battleFinishedSegue" {
+                let dest = segue.destination as! BattleResultViewController
+                dest.enemyMob = battleModel?.mob
+                dest.won = battleModel?.mob.getHealth() == 0
+            }
+        }
     }
 }

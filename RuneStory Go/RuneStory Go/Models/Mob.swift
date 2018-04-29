@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
-class Mob {
+class Mob: Hashable {
+    
+    var hashValue: Int
 
     var name: String
     var health: Int
@@ -18,6 +20,7 @@ class Mob {
     var stats: SkillStats
     var xp: Int
     var drops: [Item]
+    var mobId: String
     
     init (named: String, withImage: UIImage, withItems: EquippedItems, withStats: SkillStats, withDrops: [Item], withXP: Int) {
         name = named
@@ -27,7 +30,12 @@ class Mob {
         drops = withDrops
         xp = withXP
         health = withStats.getSkillLevel(skillName: "Health")!
-        
+        mobId = UUID().uuidString
+        hashValue = mobId.hashValue
+    }
+    
+    static func ==(lhs: Mob, rhs: Mob) -> Bool {
+        return lhs.mobId == rhs.mobId
     }
     
     func equippedStats(statName: String) -> Int {

@@ -2,6 +2,8 @@
 //  ResultViewController.swift
 //  RuneStory Go
 //
+//  Unused
+//
 //  Created by Johnny Le on 4/19/18.
 //  Copyright © 2018 Johnny Le. All rights reserved.
 //

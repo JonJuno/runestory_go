@@ -11,20 +11,28 @@ import Foundation
 class Player {
 
     var name: String
+    var xp: Int
     var level: Int
     var health: Int
+    var coins: Int
     var equipped: EquippedItems
     var inventory: [Item]
     var stats: SkillStats
+    var attacks: [Attack]
     
     init(named playerName: String, inventory items: [Item]) {
         name = playerName
-        level = 3
         equipped = EquippedItems()
         inventory = items
         stats = SkillStats()
-        stats.setSkillLevel(skillName: "Health", value: 10)
+        stats.increaseSkillXP(skillName: "Health", xpEarned: 50)
         health = stats.getSkillLevel(skillName: "Health")!
+        attacks = [stab, slash, crush, firebolt]
+        coins = 1000
+        
+        xp = 0
+        level = 0
+        increaseXP(amount: 10)
     }
     
     /* Inventory Methods */
@@ -37,13 +45,14 @@ class Player {
         inventory.append(item)
     }
     
-    func removeFromInventory(item: Item) {
+    func removeFromInventory(item: Item) -> Bool {
         for i in 0..<inventory.count {
             if (inventory[i].itemId == item.itemId) {
                 inventory.remove(at: i)
-                return
+                return true
             }
         }
+        return false
     }
     
     func inventorySize() -> Int {
@@ -98,6 +107,28 @@ class Player {
         } else {
             return nil
         }
+    }
+    
+    func increaseSkillXP(named: String, amount: Int) {
+        stats.increaseSkillXP(skillName: named, xpEarned: amount)
+    }
+    
+    func increaseXP(amount: Int) {
+        xp += amount
+        level = Int(log2(Double(xp))/log2(skillGrowthRate))
+    }
+    
+    /* Coins Methods */
+    func addCoins(amount: Int) {
+        coins += amount
+    }
+    
+    func removeCoins(amount: Int) -> Bool {
+        if coins - amount >= 0 {
+            coins -= amount
+            return true
+        }
+        return false
     }
     
     /* Health Methods */

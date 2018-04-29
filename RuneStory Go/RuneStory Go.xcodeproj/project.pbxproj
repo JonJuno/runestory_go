@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A038C038209273B900914924 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = A038C037209273B900914924 /* Store.swift */; };
+		A038C03A2092B88B00914924 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A038C0392092B88B00914924 /* Attack.swift */; };
 		A04F7422208689680020AEE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7421208689680020AEE8 /* AppDelegate.swift */; };
 		A04F7424208689680020AEE8 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7423208689680020AEE8 /* ActionViewController.swift */; };
 		A04F7426208689680020AEE8 /* EquipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7425208689680020AEE8 /* EquipViewController.swift */; };
@@ -56,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A038C037209273B900914924 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		A038C0392092B88B00914924 /* Attack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
 		A04F741E208689680020AEE8 /* RuneStory Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RuneStory Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A04F7421208689680020AEE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A04F7423208689680020AEE8 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 				A04F74652087125E0020AEE8 /* EquippedItems.swift */,
 				A04F7469208715590020AEE8 /* SkillStats.swift */,
 				A0B8E589208924EA00AE553A /* Battle.swift */,
+				A038C037209273B900914924 /* Store.swift */,
+				A038C0392092B88B00914924 /* Attack.swift */,
 				A04F745B20869DCA0020AEE8 /* CheatingConstantsforLazyPeople.swift */,
 			);
 			path = Models;
@@ -354,6 +360,7 @@
 				A0C6A83E2091A7B100689A23 /* BattleResultViewController.swift in Sources */,
 				A04F7426208689680020AEE8 /* EquipViewController.swift in Sources */,
 				A04F7422208689680020AEE8 /* AppDelegate.swift in Sources */,
+				A038C038209273B900914924 /* Store.swift in Sources */,
 				A0B8E5882089223400AE553A /* BattleViewController.swift in Sources */,
 				A04F74572086979E0020AEE8 /* InventoryViewController.swift in Sources */,
 				A04F745C20869DCA0020AEE8 /* CheatingConstantsforLazyPeople.swift in Sources */,
@@ -361,6 +368,7 @@
 				A0B8E58A208924EA00AE553A /* Battle.swift in Sources */,
 				A04F74682087128A0020AEE8 /* Item.swift in Sources */,
 				A04F746E20882CFE0020AEE8 /* StoreTableViewCell.swift in Sources */,
+				A038C03A2092B88B00914924 /* Attack.swift in Sources */,
 				A0BB74882088344C000BDBC5 /* InfoViewController.swift in Sources */,
 				A04F745E2086E0FE0020AEE8 /* EquipSelectViewController.swift in Sources */,
 				A0B8E58620890E7E00AE553A /* Mob.swift in Sources */,
