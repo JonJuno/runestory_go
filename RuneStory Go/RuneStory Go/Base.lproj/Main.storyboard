@@ -833,7 +833,7 @@
                                 <rect key="frame" x="20" y="40" width="335" height="558"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2oH-ty-PxP">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="338"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="313"/>
                                         <color key="backgroundColor" red="0.20392156859999999" green="0.20365473619999999" blue="0.20392156859999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="storeTableViewCell" id="hVV-Z6-O3f" customClass="StoreTableViewCell" customModule="RuneStory_Go" customModuleProvider="target">
@@ -896,7 +896,7 @@
                                         </prototypes>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPg-Cy-N5L">
-                                        <rect key="frame" x="0.0" y="348" width="335" height="150"/>
+                                        <rect key="frame" x="0.0" y="323" width="335" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="VDi-3w-rdA"/>
                                         </constraints>
@@ -905,26 +905,43 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ZFH-lk-KvD">
-                                        <rect key="frame" x="0.0" y="508" width="335" height="50"/>
+                                        <rect key="frame" x="0.0" y="483" width="335" height="75"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100000 gp" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wla-R1-9tp">
-                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="149.5" height="75"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="150" id="guj-83-jOP"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="32"/>
                                                 <color key="textColor" red="0.88078734569999995" green="0.84127532309999997" blue="0.19881623979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="251" image="coins" translatesAutoresizingMaskIntoConstraints="NO" id="JT4-Kk-KCi">
-                                                <rect key="frame" x="159.5" y="0.0" width="50" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vi6-ib-rVy">
+                                                <rect key="frame" x="180" y="0.0" width="50" height="75"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="coins" translatesAutoresizingMaskIntoConstraints="NO" id="JT4-Kk-KCi">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="yVF-NB-U9V"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5FI-Ea-cZV">
+                                                        <rect key="frame" x="0.0" y="44" width="52" height="31"/>
+                                                        <connections>
+                                                            <action selector="buysellChanged:" destination="81a-jK-X36" eventType="valueChanged" id="wlx-NF-QWE"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="yVF-NB-U9V"/>
+                                                    <constraint firstItem="5FI-Ea-cZV" firstAttribute="centerX" secondItem="Vi6-ib-rVy" secondAttribute="centerX" id="8Vy-FD-Kzm"/>
                                                 </constraints>
-                                            </imageView>
+                                            </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Yc-rI-6ud">
-                                                <rect key="frame" x="219.5" y="0.0" width="115.5" height="50"/>
+                                                <rect key="frame" x="260" y="0.0" width="75" height="75"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="EhK-ql-YDr"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="fUn-GC-6xI"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="24"/>
+                                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="32"/>
                                                 <state key="normal" title="Buy"/>
                                                 <connections>
                                                     <action selector="buyPressed:" destination="81a-jK-X36" eventType="touchUpInside" id="WEE-Kj-mHL"/>
@@ -932,9 +949,7 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="7Yc-rI-6ud" firstAttribute="leading" secondItem="JT4-Kk-KCi" secondAttribute="trailing" constant="10" id="imn-ze-XWW"/>
-                                            <constraint firstAttribute="height" constant="50" id="sGr-1e-ZVB"/>
-                                            <constraint firstItem="JT4-Kk-KCi" firstAttribute="leading" secondItem="wla-R1-9tp" secondAttribute="trailing" constant="10" id="zVF-48-PQm"/>
+                                            <constraint firstAttribute="height" constant="75" id="sGr-1e-ZVB"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -956,6 +971,7 @@
                     <tabBarItem key="tabBarItem" title="Store" image="quest" id="EUD-yw-9Xs"/>
                     <connections>
                         <outlet property="buyButton" destination="7Yc-rI-6ud" id="7fJ-Ml-QD3"/>
+                        <outlet property="buysellSwitch" destination="5FI-Ea-cZV" id="gPn-yg-wj7"/>
                         <outlet property="coinsLabel" destination="wla-R1-9tp" id="32Y-lJ-jFD"/>
                         <outlet property="itemDescriptionLabel" destination="aPg-Cy-N5L" id="eaj-n6-Ujz"/>
                         <outlet property="storeTableView" destination="2oH-ty-PxP" id="d1k-eN-E82"/>

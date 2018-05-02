@@ -12,6 +12,7 @@ import UIKit
 class StoreViewController: RuneStoryGoUIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var storeTableView: UITableView!
+    @IBOutlet weak var buysellSwitch: UISwitch!
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var itemDescriptionLabel: UILabel!
     @IBOutlet weak var coinsLabel: UILabel!
@@ -38,16 +39,28 @@ class StoreViewController: RuneStoryGoUIViewController, UITableViewDelegate, UIT
     
     func redraw() {
         coinsLabel.text = String(describing: currPlayer.coins) + " gp"
+        storeTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return storeModel.getItems().count
+        if buysellSwitch.isOn {
+            return currPlayer.getInventory().count
+        } else {
+            return storeModel.getItems().count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         let newCell = storeTableView.dequeueReusableCell(withIdentifier: "storeTableViewCell") as! StoreTableViewCell
-        let item = storeModel.getItems()[indexPath.item]
+        let item: Item
+        
+        if buysellSwitch.isOn {
+            item = currPlayer.getInventory()[indexPath.item]
+        } else {
+            item = storeModel.getItems()[indexPath.item]
+        }
+        
         newCell.itemNameLabel.text = item.name
         newCell.itemImageView.image = item.image
         newCell.itemPriceLabel.text = String(describing: item.cost) + " gp"
@@ -56,7 +69,12 @@ class StoreViewController: RuneStoryGoUIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedItem = storeModel.getItems()[indexPath.item]
+        if buysellSwitch.isOn {
+            selectedItem = currPlayer.getInventory()[indexPath.item]
+        } else {
+            selectedItem = storeModel.getItems()[indexPath.item]
+        }
+        
         itemDescriptionLabel.text = selectedItem.desc
         buyButton.tintColor = blueButtonColor
         buyButton.isEnabled = true
@@ -64,13 +82,39 @@ class StoreViewController: RuneStoryGoUIViewController, UITableViewDelegate, UIT
     
     @IBAction func buyPressed(_ sender: Any) {
         if let item = selectedItem {
-            if storeModel.buyItem(currPlayer: currPlayer, named: item.name) == false {
-                let alert = UIAlertController(title: "Not Enough Coins!", message: "Hey, what are you trying to pull? Don't come back unless you have the coin!", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+            if buysellSwitch.isOn {
+                if !storeModel.sellItem(currPlayer: currPlayer, item: selectedItem) {
+                    let alert = UIAlertController(title: "Item doesn't exist!", message: "Hey, what are you trying to pull? Don't come back without the goods!", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Sorry", style: UIAlertActionStyle.default, handler: {_ in
+                        self.redraw()
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            } else {
+                if storeModel.buyItem(currPlayer: currPlayer, named: item.name) == false {
+                    let alert = UIAlertController(title: "Not Enough Coins!", message: "Hey, what are you trying to pull? Don't come back unless you have the coin!", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Sorry", style: UIAlertActionStyle.default, handler: {_ in
+                        self.redraw()
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
-        redraw()
+        self.redraw()
+    }
+    
+    @IBAction func buysellChanged(_ sender: Any) {
+        storeTableView.reloadData()
+        selectedItem = nil
+        itemDescriptionLabel.text = "No item selected."
+        buyButton.tintColor = greyInvalidColor
+        buyButton.isEnabled = false
+        
+        if buysellSwitch.isOn {
+            self.buyButton.setTitle("Sell", for: UIControlState.normal)
+        } else {
+            self.buyButton.setTitle("Buy", for: UIControlState.normal)
+        }
     }
     
 }

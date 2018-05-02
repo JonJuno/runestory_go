@@ -33,8 +33,12 @@ let dragonChainDesc = "Chainmail made from Dragon metal. The smiths who forged i
 let runePlateDesc = "Plate armour made from Rune metal. You wouldn't want to hike with this on."
 let leatherBodyDesc = "A simple leather vest to cover the torso. Wear thick clothing underneath for better results."
 
-
 let runeFullDesc = "A full helmet hammered from Rune metal. Should be fairly sturdy."
+let bronzeMedDesc = "A basic helmet made of bronze. It's better than a coconut?"
+
+let leatherChapsDesc = "Basic leg protection made from leather. Cowboys rejoice!"
+
+let powerAmmyDesc = "An enchanted diamond amulet! I wonder who owned this before it ended up here..."
 
 let lobsterDesc = "Freshly cooked crustacean. Looks delicious!"
 let breadDesc = "Cheap and slightly moldy, but filling."
@@ -49,7 +53,7 @@ let steel_hammer = Item(named: "Steel Warhammer", type: "Weapon", desc: steelHam
 
 let wooden_shield = Item(named: "Wooden Shield", type: "Shield", desc: woodenShieldDesc, image: #imageLiteral(resourceName: "wooden_shield"), canConsume: false, attackVal: 0, defenseVal: 4, magicVal: -5, luckVal: 0, healthVal: 0, price: 20)
 let dragon_defender = Item(named: "Dragon Defender", type: "Shield", desc: defenderDesc, image: #imageLiteral(resourceName: "dragon_defender"), canConsume: false, attackVal: 5, defenseVal: 8, magicVal: 0, luckVal: 2, healthVal: 0, price: 180)
-let addy_sq_shield = Item(named: "Adamant Square Shield", type: "Shield", desc: addySqShieldDesc, image: #imageLiteral(resourceName: "adamant_sq_shield"), canConsume: false, attackVal: -3, defenseVal: 8, magicVal: -8, luckVal: 0, healthVal: 0, price: 100)
+let addy_sq_shield = Item(named: "Adamant Sq. Shield", type: "Shield", desc: addySqShieldDesc, image: #imageLiteral(resourceName: "adamant_sq_shield"), canConsume: false, attackVal: -3, defenseVal: 8, magicVal: -8, luckVal: 0, healthVal: 0, price: 100)
 let rune_kiteshield = Item(named: "Rune Kiteshield", type: "Shield", desc: runeKiteDesc, image: #imageLiteral(resourceName: "rune_kiteshield"), canConsume: false, attackVal: -5, defenseVal: 10, magicVal: -10, luckVal: 0, healthVal: 0, price: 200)
 
 let dragon_chainbody = Item(named: "Dragon Chainbody", type: "Chest", desc: dragonChainDesc, image: #imageLiteral(resourceName: "dragon_chainbody"), canConsume: false, attackVal: -3, defenseVal: 20, magicVal: -10, luckVal: 2, healthVal: 0, price: 1000)
@@ -57,6 +61,11 @@ let rune_platebody = Item(named: "Rune Platebody", type: "Chest", desc: runePlat
 let leather_body = Item(named: "Leather Body", type: "Chest", desc: leatherBodyDesc, image: #imageLiteral(resourceName: "leather_body"), canConsume: false, attackVal: 0, defenseVal: 6, magicVal: 0, luckVal: 0, healthVal: 0, price: 50)
 
 let rune_full = Item(named: "Rune Full Helm", type: "Head", desc: runeFullDesc, image: #imageLiteral(resourceName: "rune_full"), canConsume: false, attackVal: -15, defenseVal: 47, magicVal: -20, luckVal: -5, healthVal: 0, price: 300)
+let bronze_med_helm = Item(named: "Bronze Med Helm", type: "Head", desc: bronzeMedDesc, image: #imageLiteral(resourceName: "bronze_med_helm"), canConsume: false, attackVal: -2, defenseVal: 4, magicVal: -2, luckVal: 0, healthVal: 0, price: 100)
+
+let leather_chaps = Item(named: "Leather Chaps", type: "Legs", desc: leatherChapsDesc, image: #imageLiteral(resourceName: "leather_chaps"), canConsume: false, attackVal: 0, defenseVal: 3, magicVal: 0, luckVal: 0, healthVal: 0, price: 25)
+
+let amulet_of_power = Item(named: "Amulet of Power", type: "Accessory", desc: powerAmmyDesc, image: #imageLiteral(resourceName: "ammy_of_power"), canConsume: false, attackVal: 5, defenseVal: 5, magicVal: 5, luckVal: 5, healthVal: 0, price: 1000)
 
 let lobster = Item(named: "Lobster", type: "Food", desc: lobsterDesc, image: #imageLiteral(resourceName: "lobster"), canConsume: true, attackVal: 0, defenseVal: 0, magicVal: 0, luckVal: 0, healthVal: 20, price: 15)
 let bread = Item(named: "Bread", type: "Food", desc: breadDesc, image: #imageLiteral(resourceName: "bread"), canConsume: true, attackVal: 0, defenseVal: 0, magicVal: 0, luckVal: 0, healthVal: 3, price: 5)
@@ -76,7 +85,7 @@ let goblin = Mob(named: "Goblin", withImage: #imageLiteral(resourceName: "goblin
 let mobPopulation = [rat, skeleton, goblin]
 
 /* Store Items */
-let storeItems = [bronze_long.copy(), rune_scimitar.copy(), fire_staff.copy(), wooden_shield.copy(), addy_sq_shield.copy(), rune_kiteshield.copy(), leather_body.copy(), rune_full.copy(), bread.copy(), beer.copy(), lobster.copy()]
+let storeItems = [bronze_long.copy(), rune_scimitar.copy(), fire_staff.copy(), wooden_shield.copy(), addy_sq_shield.copy(), rune_kiteshield.copy(), leather_body.copy(), rune_full.copy(), bread.copy(), beer.copy(), lobster.copy(), leather_chaps.copy(), amulet_of_power.copy(), bronze_med_helm.copy()]
 
 /* Initialization of Player Bob */
 var currPlayer: Player!
