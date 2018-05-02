@@ -19,8 +19,5 @@ class RuneStoryGoUIViewController: UIViewController {
         
         blueButtonColor = self.view.tintColor
         greyInvalidColor = UIColor.lightGray
-        
-        /* set default background color to grey */
-//        self.view.backgroundColor = UIColor.darkGray
     }
 }

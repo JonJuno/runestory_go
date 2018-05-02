@@ -24,7 +24,7 @@ class Store {
         return Array(items.values)
     }
     
-    func buyItem(named: String) -> Bool {
+    func buyItem(currPlayer:Player, named: String) -> Bool {
         if let item = items[named] {
             if currPlayer.removeCoins(amount: item.cost) {
                 currPlayer.addToInventory(item: item.copy())
@@ -34,7 +34,7 @@ class Store {
         return false
     }
     
-    func sellItem(item: Item) -> Bool {
+    func sellItem(currPlayer:Player, item: Item) -> Bool {
         if currPlayer.removeFromInventory(item: item) {
             currPlayer.addCoins(amount: item.cost)
             return true

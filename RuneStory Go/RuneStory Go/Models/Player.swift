@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
-class Player {
+class Player: NSObject, NSCoding {
 
     var name: String
+    var image: UIImage
     var xp: Int
     var level: Int
     var health: Int
@@ -22,6 +24,7 @@ class Player {
     
     init(named playerName: String, inventory items: [Item]) {
         name = playerName
+        image = #imageLiteral(resourceName: "bob")
         equipped = EquippedItems()
         inventory = items
         stats = SkillStats()
@@ -30,10 +33,36 @@ class Player {
         attacks = [stab, slash, crush, firebolt]
         coins = 1000
         
-        xp = 0
-        level = 0
-        increaseXP(amount: 10)
+        xp = 10
+        level = Int(log2(Double(xp))/log2(skillGrowthRate))
     }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(xp, forKey: "xp")
+        aCoder.encode(level, forKey: "level")
+        aCoder.encode(health, forKey: "health")
+        aCoder.encode(coins, forKey: "coins")
+        aCoder.encode(equipped, forKey: "equipped")
+        aCoder.encode(inventory, forKey: "inventory")
+        aCoder.encode(stats, forKey: "stats")
+        aCoder.encode(attacks, forKey: "attacks")
+        aCoder.encode(image, forKey: "image")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        name = aDecoder.decodeObject(forKey: "name") as! String
+        coins = aDecoder.decodeInteger(forKey: "coins")
+        xp = aDecoder.decodeInteger(forKey: "xp")
+        level = aDecoder.decodeInteger(forKey: "level")
+        health = aDecoder.decodeInteger(forKey: "health")
+        equipped = aDecoder.decodeObject(forKey: "equipped") as! EquippedItems
+        inventory = aDecoder.decodeObject(forKey: "inventory") as! [Item]
+        stats = aDecoder.decodeObject(forKey: "stats") as! SkillStats
+        attacks = aDecoder.decodeObject(forKey: "attacks") as! [Attack]
+        image = aDecoder.decodeObject(forKey: "image") as! UIImage
+    }
+    
     
     /* Inventory Methods */
     
@@ -139,8 +168,8 @@ class Player {
     
     func increaseHealth(hitpoints: Int) {
         health += hitpoints
-        if health > currPlayer.getSkillLevel(skillName: "Health")! {
-            health = currPlayer.getSkillLevel(skillName: "Health")!
+        if health > getSkillLevel(skillName: "Health")! {
+            health = getSkillLevel(skillName: "Health")!
         }
     }
     

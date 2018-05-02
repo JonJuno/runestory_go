@@ -8,9 +8,9 @@
 
 import Foundation
 
-class Attack {
+class Attack: NSObject, NSCoding {
     
-    enum AttackType {
+    enum AttackType : String {
         case Stab
         case Slash
         case Crush
@@ -25,5 +25,17 @@ class Attack {
         name = named
         attackType = type
         attackModifier = modifierVal
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(attackType.rawValue, forKey: "type")
+        aCoder.encode(attackModifier, forKey: "modifier")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        name = aDecoder.decodeObject(forKey: "name") as! String
+        attackType = AttackType(rawValue: aDecoder.decodeObject(forKey: "type") as! String)!
+        attackModifier = aDecoder.decodeInteger(forKey: "modifier")
     }
 }

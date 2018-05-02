@@ -57,14 +57,14 @@ class StoreViewController: RuneStoryGoUIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedItem = storeModel.getItems()[indexPath.item]
-        itemDescriptionLabel.text = selectedItem.description
+        itemDescriptionLabel.text = selectedItem.desc
         buyButton.tintColor = blueButtonColor
         buyButton.isEnabled = true
     }
     
     @IBAction func buyPressed(_ sender: Any) {
         if let item = selectedItem {
-            if storeModel.buyItem(named: item.name) == false {
+            if storeModel.buyItem(currPlayer: currPlayer, named: item.name) == false {
                 let alert = UIAlertController(title: "Not Enough Coins!", message: "Hey, what are you trying to pull? Don't come back unless you have the coin!", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)

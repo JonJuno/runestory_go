@@ -11,7 +11,7 @@
 import Foundation
 import UIKit
 
-class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ResultViewController: RuneStoryGoUIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var battleResultLabel: UILabel!
     @IBOutlet weak var inventoryChangesLabel: UILabel!

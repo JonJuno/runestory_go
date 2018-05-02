@@ -1,7 +1,7 @@
 //
 //  InfoViewController.swift
 //  RuneStory Go
-//
+//  Not Used
 //  Created by Johnny Le on 4/18/18.
 //  Copyright © 2018 Johnny Le. All rights reserved.
 //
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class InfoViewController: UIViewController {
+class InfoViewController: RuneStoryGoUIViewController {
     
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemDescriptionLabel: UILabel!

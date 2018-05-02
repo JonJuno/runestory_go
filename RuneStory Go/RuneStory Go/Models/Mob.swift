@@ -38,6 +38,11 @@ class Mob: Hashable {
         return lhs.mobId == rhs.mobId
     }
     
+    func copy() -> Mob {
+        let newDrops = drops
+        return Mob(named: name, withImage: image, withItems: EquippedItems(), withStats: stats.copy(), withDrops: newDrops, withXP: xp)
+    }
+    
     func equippedStats(statName: String) -> Int {
         return equipped.equippedStats(stat: statName)
     }

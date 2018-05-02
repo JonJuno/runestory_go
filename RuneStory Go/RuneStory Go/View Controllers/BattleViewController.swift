@@ -81,7 +81,7 @@ class BattleViewController: RuneStoryGoUIViewController, UIPickerViewDelegate, U
             return
         }
         
-        let damage = battleModel!.advanceBattle()
+        let damage = battleModel!.advanceBattle(currPlayer: currPlayer)
         redrawBattle(state: state, entity: battleModel!.mob.name, damage: damage)
         
         if state == Battle.BattlePhase.PlayerAttack {
@@ -139,8 +139,13 @@ class BattleViewController: RuneStoryGoUIViewController, UIPickerViewDelegate, U
         return currPlayer.attacks.count
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return currPlayer.attacks[row].name
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let pickerLabel = UILabel()
+        pickerLabel.font = UIFont(name: "Optima", size: 28)
+        pickerLabel.text = currPlayer.attacks[row].name
+        pickerLabel.textColor = mobNameLabel.textColor
+        pickerLabel.textAlignment = NSTextAlignment.center
+        return pickerLabel;
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

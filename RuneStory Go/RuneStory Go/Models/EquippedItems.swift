@@ -8,7 +8,7 @@
 
 import Foundation
 
-class EquippedItems {
+class EquippedItems: NSObject, NSCoding {
     
     var head_item: Item?
     var chest_item: Item?
@@ -16,6 +16,28 @@ class EquippedItems {
     var left_item: Item?
     var right_item: Item?
     var accessory_item: Item?
+    
+    override init() {
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(head_item, forKey: "head")
+        aCoder.encode(chest_item, forKey: "chest")
+        aCoder.encode(legs_item, forKey: "legs")
+        aCoder.encode(left_item, forKey: "left")
+        aCoder.encode(right_item, forKey: "right")
+        aCoder.encode(accessory_item, forKey: "accessory")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        head_item = aDecoder.decodeObject(forKey: "head") as? Item
+        chest_item = aDecoder.decodeObject(forKey: "chest") as? Item
+        legs_item = aDecoder.decodeObject(forKey: "legs") as? Item
+        left_item = aDecoder.decodeObject(forKey: "left") as? Item
+        right_item = aDecoder.decodeObject(forKey: "right") as? Item
+        accessory_item = aDecoder.decodeObject(forKey: "accessory") as? Item
+    }
     
     func items() -> [Item?] {
         return [head_item, chest_item, legs_item, left_item, right_item, accessory_item]

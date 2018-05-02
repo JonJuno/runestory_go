@@ -17,6 +17,8 @@ class SkillsViewController: RuneStoryGoUIViewController, UITableViewDelegate, UI
     
     @IBOutlet weak var skillsTableView: UITableView!
     
+    var selected: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,10 +26,13 @@ class SkillsViewController: RuneStoryGoUIViewController, UITableViewDelegate, UI
         skillsTableView.dataSource = self
         
         setupCharData()
+        selected = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         skillsTableView.reloadData()
+        setupCharData()
+        selected = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,7 +41,6 @@ class SkillsViewController: RuneStoryGoUIViewController, UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return skillNames.count
     }
     
@@ -59,8 +63,15 @@ class SkillsViewController: RuneStoryGoUIViewController, UITableViewDelegate, UI
     }
     
     func setupCharData() {
-        userAvatarImageView.image = UIImage(named: "bob")
+        userAvatarImageView.image = currPlayer.image
         userNameLabel.text = currPlayer.name
         userLevelLabel.text = "Level " + String(currPlayer.level)
+    }
+    
+    @IBAction func avatarSlotSelected(_ sender: Any) {
+        if !selected {
+            selected = true
+            performSegue(withIdentifier: "selectAvatarSegue", sender: self)
+        }
     }
 }

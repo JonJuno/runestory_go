@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A00952612098F4840003E160 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00952602098F4840003E160 /* LoginViewController.swift */; };
+		A00952632098F4960003E160 /* AvatarSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00952622098F4960003E160 /* AvatarSelectViewController.swift */; };
+		A00952652098F4AD0003E160 /* AvatarSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00952642098F4AD0003E160 /* AvatarSelectCollectionViewCell.swift */; };
 		A038C038209273B900914924 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = A038C037209273B900914924 /* Store.swift */; };
 		A038C03A2092B88B00914924 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A038C0392092B88B00914924 /* Attack.swift */; };
 		A04F7422208689680020AEE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F7421208689680020AEE8 /* AppDelegate.swift */; };
@@ -58,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A00952602098F4840003E160 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A00952622098F4960003E160 /* AvatarSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSelectViewController.swift; sourceTree = "<group>"; };
+		A00952642098F4AD0003E160 /* AvatarSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSelectCollectionViewCell.swift; sourceTree = "<group>"; };
 		A038C037209273B900914924 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		A038C0392092B88B00914924 /* Attack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
 		A04F741E208689680020AEE8 /* RuneStory Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RuneStory Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,16 +185,18 @@
 			isa = PBXGroup;
 			children = (
 				A04F746B2087ED870020AEE8 /* RuneStoryGoUIViewController.swift */,
+				A00952602098F4840003E160 /* LoginViewController.swift */,
 				A04F746F20882D380020AEE8 /* StoreViewController.swift */,
-				A0BB74872088344C000BDBC5 /* InfoViewController.swift */,
 				A04F7425208689680020AEE8 /* EquipViewController.swift */,
 				A04F745D2086E0FE0020AEE8 /* EquipSelectViewController.swift */,
 				A04F7423208689680020AEE8 /* ActionViewController.swift */,
 				A0B8E5872089223400AE553A /* BattleViewController.swift */,
-				A0B8E58B208954D800AE553A /* ResultViewController.swift */,
 				A0C6A83D2091A7B100689A23 /* BattleResultViewController.swift */,
 				A04F74562086979E0020AEE8 /* InventoryViewController.swift */,
 				A04F745120868A670020AEE8 /* SkillsViewController.swift */,
+				A00952622098F4960003E160 /* AvatarSelectViewController.swift */,
+				A0BB74872088344C000BDBC5 /* InfoViewController.swift */,
+				A0B8E58B208954D800AE553A /* ResultViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -213,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				A04F745920869A670020AEE8 /* InventoryCollectionViewCell.swift */,
+				A00952642098F4AD0003E160 /* AvatarSelectCollectionViewCell.swift */,
 				A04F746D20882CFE0020AEE8 /* StoreTableViewCell.swift */,
 				A04F745F2086E2120020AEE8 /* SkillsTableViewCell.swift */,
 				A04F74612086E83F0020AEE8 /* EquipSelectTableViewCell.swift */,
@@ -355,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00952612098F4840003E160 /* LoginViewController.swift in Sources */,
 				A04F7464208711C20020AEE8 /* Player.swift in Sources */,
 				A04F74662087125E0020AEE8 /* EquippedItems.swift in Sources */,
 				A0C6A83E2091A7B100689A23 /* BattleResultViewController.swift in Sources */,
@@ -368,10 +378,12 @@
 				A0B8E58A208924EA00AE553A /* Battle.swift in Sources */,
 				A04F74682087128A0020AEE8 /* Item.swift in Sources */,
 				A04F746E20882CFE0020AEE8 /* StoreTableViewCell.swift in Sources */,
+				A00952652098F4AD0003E160 /* AvatarSelectCollectionViewCell.swift in Sources */,
 				A038C03A2092B88B00914924 /* Attack.swift in Sources */,
 				A0BB74882088344C000BDBC5 /* InfoViewController.swift in Sources */,
 				A04F745E2086E0FE0020AEE8 /* EquipSelectViewController.swift in Sources */,
 				A0B8E58620890E7E00AE553A /* Mob.swift in Sources */,
+				A00952632098F4960003E160 /* AvatarSelectViewController.swift in Sources */,
 				A04F746A208715590020AEE8 /* SkillStats.swift in Sources */,
 				A0B8E58E208956D800AE553A /* ChangedItemsTableViewCell.swift in Sources */,
 				A04F746C2087ED870020AEE8 /* RuneStoryGoUIViewController.swift in Sources */,

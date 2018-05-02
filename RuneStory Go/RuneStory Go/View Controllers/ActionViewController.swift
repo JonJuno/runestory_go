@@ -17,8 +17,8 @@ class ActionViewController: RuneStoryGoUIViewController, CLLocationManagerDelega
     var manager: CLLocationManager!
     
     let regionRadius: CLLocationDistance = 200
-    let encounterDistance: Int = 7
-    let maxMobs: Int = 8
+    let encounterDistance: Int = 8
+    let maxMobs: Int = 10
     
     var mobs: [Mob:MKPointAnnotation]!
     var selectedMob: Mob!
@@ -31,9 +31,6 @@ class ActionViewController: RuneStoryGoUIViewController, CLLocationManagerDelega
         
         mapView.delegate = self
         mapView.showsUserLocation = true
-        mapView.mapType = .standard
-        mapView.isZoomEnabled = true
-        mapView.isScrollEnabled = true
         
         manager = CLLocationManager()
         manager.delegate = self
@@ -117,21 +114,10 @@ class ActionViewController: RuneStoryGoUIViewController, CLLocationManagerDelega
                 mobs.removeValue(forKey: mob)
             }
         }
-        if mobs.count < maxMobs && arc4random_uniform(UInt32(maxMobs)) == 0 {
-            let mobStats = SkillStats()
-            mobStats.setSkillLevel(skillName: "Attack", value: 20)
-            mobStats.setSkillLevel(skillName: "Defense", value: 1)
-            mobStats.setSkillLevel(skillName: "Magic", value: 1)
-            mobStats.setSkillLevel(skillName: "Health", value: 20)
-            let mobName = "Giant Rat"
-            let mobDrop = [lobsterDrop]
-            let mobXP = 10
-            let mobImage = #imageLiteral(resourceName: "giant_rat")
+        if mobs.count < maxMobs && arc4random_uniform(UInt32(mobs.count)) == 0 {
+            let newMob = mobPopulation[Int(arc4random_uniform(UInt32(mobPopulation.count)))].copy()
             let mobCoordinates = getValidMobCoordinates()
-            
-            let newMob = Mob(named: mobName, withImage: mobImage, withItems: EquippedItems(), withStats: mobStats, withDrops: mobDrop, withXP: mobXP)
-            
-            mobs[newMob] = pinLocation(latitude: mobCoordinates.latitude, longitude: mobCoordinates.longitude, title: mobName, subtitle: "", image: mobImage)
+            mobs[newMob] = pinLocation(latitude: mobCoordinates.latitude, longitude: mobCoordinates.longitude, title: newMob.name, subtitle: "", image: newMob.image)
         }
     }
     

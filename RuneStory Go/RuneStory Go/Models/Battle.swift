@@ -33,7 +33,7 @@ class Battle {
         phase = BattlePhase.PlayerAttack
     }
     
-    func advanceBattle() -> Int {
+    func advanceBattle(currPlayer: Player) -> Int {
         var damage = 0
         
         if phase == BattlePhase.PlayerAttack {
